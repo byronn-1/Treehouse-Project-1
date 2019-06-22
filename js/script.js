@@ -14,7 +14,7 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
-
+//Project- Build a random quote generator 
 var quotes =[
   {
     quote: " ",
@@ -91,7 +91,7 @@ console.log(quotes);
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
-
+  // so this is an array of objects meanin that each object will have a numerica value starting from 0
  function getRandomQuote() {
   var quote;
   for (var i = 0; i < quotes.length; i += 1) {
