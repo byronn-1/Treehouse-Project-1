@@ -15,6 +15,11 @@ project 1 - A Random Quote Generator
   Use console.log() to log your array of quotes to the console.
 ***/
 //Project- Build a random quote generator 
+
+//needs more properties
+
+
+// Idea- starwars quote generator with- movie, time in movie, darkside or empire maybe even a href to a clip. 
 var quotes =[
   {
     quote: " ",
@@ -89,14 +94,30 @@ console.log(quotes);
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+   - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
-  // so this is an array of objects meanin that each object will have a numerica value starting from 0
- function getRandomQuote() {
-  var quote;
-  for (var i = 0; i < quotes.length; i += 1) {
-    quote = quotes[i];
- }
+  // so this is an array of objects meaning that each object will have a numerical value starting from 0
+ function getRandomQuote(quotes) {
+  
+  function getRndInteger(  ) {
+    let numberOfQuotes = quotes.length;
+    let randQ = Math.floor(Math.random() * numberOfQuotes) ;
+    return randQ;
+  }
+
+  randomQuote = quotes.randQ
+  // or RandomQuote = quotes[randQ + 1];
+  // or RandomQuote = quotes[randQ];
+  return randomQuote
+}
+
+
+
+//     for (var i = 0; i < quotes.length; i += 1) {
+//       quote = quotes[i]; }
+
+//     return quote;
+//  }
 
 
 /***
@@ -112,12 +133,21 @@ console.log(quotes);
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
-function printQuote(message){
+function printQuote(message, randomQuote, quotes ){
   let html = '';
+  let htmlPlusQuote = html + randomQuote;
   var outputDiv = document.getElementById('quote-box');
+  
   outputDiv.innerHTML = message;
+  if (quotes.citation == true ) {
+    htmlPlusQuote + quotes.citation
+  } 
+  if(quotes.year == true) {
+    htmlPlusQuote + quotes.year
+  }
 }
 
+// random background color, Auto refresh, more properties
 
 /***
   When the "Show another quote" button is clicked, the event listener 
