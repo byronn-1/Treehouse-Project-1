@@ -20,16 +20,17 @@ project 1 - A Random Quote Generator
 
 
 // Idea- starwars quote generator with- movie, time in movie, darkside or empire maybe even a href to a clip. 
+// https://sayingimages.com/back-to-the-future-quotes/
 var quotes =[
   {
-    quote: " ",
-    source: " ",
+    quote: " Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine … out of a DeLorean?",
+    source: "Marty McFly",
     citation: " ",
     year: " "
   },
   {
-    quote: " ",
-    source: " ",
+    quote: "Last night, Darth Vader came down from planet Vulcan and told me that if I didn't take Lorraine out that he'd melt my brain. ",
+    source: "George McFly ",
     citation: " ",
     year: " "
   },
@@ -89,7 +90,6 @@ var quotes =[
   },
 ];
 
-console.log(quotes);
 
 /***
   Create the `getRandomQuote` function to:
@@ -97,25 +97,17 @@ console.log(quotes);
    - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
   // so this is an array of objects meaning that each object will have a numerical value starting from 0
- function getRandomQuote(quotes) {
-  
-  function getRndInteger(  ) {
-    let numberOfQuotes = quotes.length;
-    let randQ = Math.floor(Math.random() * numberOfQuotes) ;
-    return randQ;
-  }
 
-  randomQuote = quotes.randQ
+ function getRandomQuote() {
+    let randomQuoteNum = Math.floor(Math.random() * quotes.length);
   // or RandomQuote = quotes[randQ + 1];
   // or RandomQuote = quotes[randQ];
-  return randomQuote
+  return randomQuoteNum;
 }
-
-
-
+// console.log(getRandomQuote())
+// console.log(quotes[getRandomQuote()])
 //     for (var i = 0; i < quotes.length; i += 1) {
 //       quote = quotes[i]; }
-
 //     return quote;
 //  }
 
@@ -133,20 +125,27 @@ console.log(quotes);
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
-function printQuote(message, randomQuote, quotes ){
-  let html = '';
-  let htmlPlusQuote = html + randomQuote;
-  var outputDiv = document.getElementById('quote-box');
+function printQuote(randomQuote ){
+  let randomQuote = quote[getRandomQuote()];
   
-  outputDiv.innerHTML = message;
-  if (quotes.citation == true ) {
-    htmlPlusQuote + quotes.citation
-  } 
-  if(quotes.year == true) {
-    htmlPlusQuote + quotes.year
-  }
-}
+  let quoteP = document.createElement('p');
+  quoteP.innerHTML = randomQuote;
 
+  let html = '';
+ 
+  
+  // let htmlPlusQuote = html + randomQuote;
+  // var outputDiv = document.getElementById('quote-box');
+  
+  // outputDiv.innerHTML = message;
+  // if (quotes.citation == true ) {
+  //   htmlPlusQuote + quotes.citation
+  // } 
+  // if(quotes.year == true) {
+  //   htmlPlusQuote + quotes.year
+  // }
+}
+console.log(printQuote())
 // random background color, Auto refresh, more properties
 
 /***
