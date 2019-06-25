@@ -25,8 +25,8 @@ var quotes = [
   },
   {
     quote: "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious s***.",
-    character: "Back to the Future",
-    citation: "",
+    character: "",
+    citation: "Back to the Future",
     year: ""
   },
   {
@@ -78,25 +78,48 @@ function getRandomQuote() {
   let html = '';
   html += '<p class="quote">Quote: ' + quotes[randomNumber].quote + '</p>';
   html +='<p class="source">Character: ' + quotes[randomNumber].character + '</p>';
-  html += '<p class="citation">Citation: ' + quotes[randomNumber].citation + '</p>';
-  
   
   if (quotes[randomNumber].year) {
     html += '<p class="year">Year: ' + quotes[randomNumber].year + '</p>'}
   else {
     html += '<p class="year">Year: Some Time Back to the Future!</p>';
   }
+  if (quotes[randomNumber].citation) {
+    html += '<p class="year">Citation: ' + quotes[randomNumber].citation + '</p>'}
+  else {
+    html +="";
+  }
 
   return html;
 }
+// - Set the `innerHTML` of the `quote-box` div to the HTML string. 
+
 console.log(getRandomQuote());
 
-function printQuote(){
+function numberForColor(){
+  return Math.floor(Math.random() * 256);
+}
 
+function randomColor(){
+var color = 'rgb(';
+    color += numberForColor() + ',';
+    color += numberForColor() + ',';
+    color += numberForColor() + ')';
+
+    return color;
+}
+
+function printQuoteAndColor(){
   var outputDiv = document.querySelector('.quote');
+  var containerColor = document.querySelector('.container');
+  var randomColor1 = randomColor();
+
   outputDiv.innerHTML = getRandomQuote();
-
-};
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+  containerColor.style.backgroundColor = randomColor1;
+  // document.getElementById("myDiv").style.backgroundColor = 
+  // document.body.style.backgroundColor = "red";
+}
+console.log(numberForColor())
+console.log(randomColor())
+document.getElementById('loadQuote').addEventListener("click", printQuoteAndColor, false);
 
