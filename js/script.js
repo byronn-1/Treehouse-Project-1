@@ -113,7 +113,7 @@ function numberForColor(){
 }
 
 function randomColor(){
-  let element = document.querySelector('.container');
+  let element = document.getElementsByTagName("BODY")[0];
     let r = numberForColor(); 
     let g = numberForColor(); 
     let b = numberForColor(); 
@@ -124,10 +124,9 @@ function randomColor(){
 
 function printQuote(){
   const outputDiv = document.querySelector('.quote');
-  let color = randomColor();
-
-  outputDiv.innerHTML = getRandomQuote();
+  // const container
   randomColor();
+  outputDiv.innerHTML = getRandomQuote();
   console.log(randomColor());
 
 }
