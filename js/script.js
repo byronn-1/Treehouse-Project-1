@@ -1,3 +1,7 @@
+var quoteBox= document.getElementById("quote-box");
+let citationHtml = document.querySelector(".citation");
+let yearHtml = quoteBox.querySelector(".year");
+
 var quotes = [
   {
     quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine … out of a DeLorean?",
@@ -80,61 +84,75 @@ var quotes = [
 ];
 
 function getRandomQuote() {
+
   function randomQuoteNum() {
     randomNumber =  Math.floor(Math.random() * quotes.length);
     return randomNumber;
   }
-  
-randomNumber = randomQuoteNum();
-  
-  let html1 = '';
-  let html2 = '';
 
-  html1 += '<p class="quote">' + quotes[randomNumber].quote + '</p>';
-  html1 +='<p class="character">' + quotes[randomNumber].character + '</p>';
-  if (quotes[randomNumber].citation) {
-    html1 += '<span="citation">' + quotes[randomNumber].citation + '</span>'}
-  else {
-    document.querySelector(".citation").style.display = "none";
+  let html = "";
+  let quotePlusNum = quotes[randomQuoteNum()];
+  let quotesObj = quotePlusNum.quote;
+  let quoteLit = quotePlusNum.quote
+  let characterLit = quotePlusNum.character;
+  let citationLit = quotePlusNum.citation;
+  let yearLit = quotePlusNum.year;
+  // console.log(quotesObj);
+  // quoteBox.querySelector('.character').innerHTML= `<p> ${characterLit} </p>`;
+  // console.log(quoteBox.querySelector('.character').textContent);
+
+  quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
+  if (!citationLit) {
+      citationHtml.style.display = "none";
   }
-  if (quotes[randomNumber].year) {
-    html2 += '<span class="year">' + quotes[randomNumber].year + '</span>'}
-  else {
-    html2 += '<span class="year">Some Time Back to the Future!</span>';
-  }
-  htmlString = html1 + html2 + '</p>'
-  return htmlString;
-}
+  if (!yearLit) {
+    yearLit = `Some Time Back to the Future!`;
+    }
+
+    html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit} </span></p>`
+
+  return html
+//   let html1 = '';
+//   let html2 = '';
+
+//   html1 += '<p class="quote">' + quotes[randomNumber].quote + '</p>';
+//   html1 +='<p class="character">' + quotes[randomNumber].character + '</p>';
+//   if (quotes[randomNumber].citation) {
+//     html1 += '<span class="citation">' + quotes[randomNumber].citation + '</span>'}
+//   else {
+//     document.querySelector(".citation").style.display = "none";
+//   }
+//   if (quotes[randomNumber].year) {
+//     html2 += '<span class="year">' + quotes[randomNumber].year + '</span>'}
+//   else {
+//     html2 += '<span class="year">Some Time Back to the Future!</span>';
+//   }
+//   htmlString = html1 + html2 + '</p>'
+//   return htmlString;
+// }
 // - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-
-console.log(getRandomQuote());
+}
+console.log(getRandomQuote)
 
 function numberForColor(){
   return Math.floor(Math.random() * 256);
 }
 
 function randomColor(){
-  let element = document.getElementsByTagName("BODY")[0];
+  let colorElement = document.getElementsByTagName("BODY")[0];
     let r = numberForColor(); 
     let g = numberForColor(); 
     let b = numberForColor(); 
-
-  element.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-    return element;
+    colorElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+      return colorElement;
 }
 
 function printQuote(){
-  const outputDiv = document.querySelector('.quote');
-  // const container
+  const outputDiv = document.querySelector('#quote-box');
+
   randomColor();
   outputDiv.innerHTML = getRandomQuote();
-  console.log(randomColor());
-
 }
-
-// console.log(container.style.backgroundColor);
-console.log(numberForColor());
-console.log(randomColor());
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
