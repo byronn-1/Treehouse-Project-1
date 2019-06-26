@@ -6,6 +6,12 @@ var quotes = [
     year: 1985
   },
   {
+    quote: "Jeasus Christ, Doc! You disintegrated Einstien",
+    character: "Marty McFly",
+    citation: "Back to the Future",
+    year: 1985
+  },
+  {
     quote: "Last night, Darth Vader came down from planet Vulcan and told me that if I didn't take Lorraine out that he'd melt my brain. ",
     character: "George McFly ",
     citation: "Back To The Future Part 2",
@@ -52,6 +58,12 @@ var quotes = [
     character: "Dr. Emmett Brown",
     citation: "Back to the Future",
     year: ""
+  },
+  {
+    quote: "Einstein has just become the worlds frist time traveler. I sent him into the future.",
+    character: "Dr. Emmett Brown",
+    citation: "Back to the Future",
+    year: 1985
   },
   {
     quote: "Is there a problem with Earth's gravitational pull in the future? Why is everything so heavy?",
@@ -101,25 +113,30 @@ function numberForColor(){
 }
 
 function randomColor(){
-var color = 'rgb(';
-    color += numberForColor() + ',';
-    color += numberForColor() + ',';
+  let container = document.querySelector('.container');
+  var color = 'rgb(';
+
+    color += numberForColor() + ', ';
+    color += numberForColor() + ', ';
     color += numberForColor() + ')';
 
+    container.style.backgroundColor = color;
     return color;
 }
 
-function printQuoteAndColor(){
-  var outputDiv = document.querySelector('.quote');
-  var containerColor = document.querySelector('.container');
-  var randomColor1 = randomColor();
+function printQuote(){
+  const outputDiv = document.querySelector('.quote');
+  let color = randomColor();
 
   outputDiv.innerHTML = getRandomQuote();
-  containerColor.style.backgroundColor = randomColor1;
-  // document.getElementById("myDiv").style.backgroundColor = 
-  // document.body.style.backgroundColor = "red";
+  randomColor();
+  console.log(randomColor());
+
 }
-console.log(numberForColor())
-console.log(randomColor())
-document.getElementById('loadQuote').addEventListener("click", printQuoteAndColor, false);
+
+// console.log(container.style.backgroundColor);
+console.log(numberForColor());
+console.log(randomColor());
+
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
