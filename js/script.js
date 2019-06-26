@@ -31,7 +31,7 @@ var quotes = [
   },
   {
     quote: "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious s***.",
-    character: "",
+    character: "Dr. Emmett Brown",
     citation: "Back to the Future",
     year: ""
   },
@@ -85,24 +85,25 @@ function getRandomQuote() {
     return randomNumber;
   }
   
-  randomNumber = randomQuoteNum();
+randomNumber = randomQuoteNum();
   
-  let html = '';
-  html += '<p class="quote">Quote: ' + quotes[randomNumber].quote + '</p>';
-  html +='<p class="source">Character: ' + quotes[randomNumber].character + '</p>';
-  
-  if (quotes[randomNumber].year) {
-    html += '<p class="year">Year: ' + quotes[randomNumber].year + '</p>'}
-  else {
-    html += '<p class="year">Year: Some Time Back to the Future!</p>';
-  }
-  if (quotes[randomNumber].citation) {
-    html += '<p class="year">Citation: ' + quotes[randomNumber].citation + '</p>'}
-  else {
-    html +="";
-  }
+  let html1 = '';
+  let html2 = '';
 
-  return html;
+  html1 += '<p class="quote">' + quotes[randomNumber].quote + '</p>';
+  html1 +='<p class="character">' + quotes[randomNumber].character + '</p>';
+  if (quotes[randomNumber].citation) {
+    html1 += '<span="citation">' + quotes[randomNumber].citation + '</span>'}
+  else {
+    document.querySelector(".citation").style.display = "none";
+  }
+  if (quotes[randomNumber].year) {
+    html2 += '<span class="year">' + quotes[randomNumber].year + '</span>'}
+  else {
+    html2 += '<span class="year">Some Time Back to the Future!</span>';
+  }
+  htmlString = html1 + html2 + '</p>'
+  return htmlString;
 }
 // - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 

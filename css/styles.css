@@ -45,7 +45,7 @@ body {
   position: absolute;
 }
 
-.source {
+.character {
   font-size: 1rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
@@ -53,7 +53,7 @@ body {
   margin-right: 4em;
 }
 
-.source:before {
+.character:before {
   content: "—";
 }
 
