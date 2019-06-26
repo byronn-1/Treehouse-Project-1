@@ -113,15 +113,13 @@ function numberForColor(){
 }
 
 function randomColor(){
-  let container = document.querySelector('.container');
-  var color = 'rgb(';
+  let element = document.querySelector('.container');
+    let r = numberForColor(); 
+    let g = numberForColor(); 
+    let b = numberForColor(); 
 
-    color += numberForColor() + ', ';
-    color += numberForColor() + ', ';
-    color += numberForColor() + ')';
-
-    container.style.backgroundColor = color;
-    return color;
+  element.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    return element;
 }
 
 function printQuote(){
