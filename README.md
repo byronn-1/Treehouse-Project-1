@@ -7,7 +7,7 @@ Also big thanks to TeamTreehouse your set up is Great and has really helped me o
 
 The most current Js file will be index.js any others in this repo will be files that are to prove my work throughs (and so I don't forget where I'm up to!!!).
 
-PROJECT ONE 
+PROJECT ONE: <br> 
 This project is where I have attempted to make a "random quote generator" using an array of objects.
 When the button is clicked the page will load another quote from the array of quotes.
 The page also changes colour on click and after a certain time period (7.5secs).
