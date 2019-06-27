@@ -1,12 +1,12 @@
 // query selectors for selecting HTML elements
 let quoteBox= document.getElementById("quote-box");
 let citationHtml = document.querySelector("span.citation");
-let tagsHtml = document.querySelector("span.tags");
+let tagsHtml = document.querySelector(".tags");
 let yearHtml = quoteBox.querySelector(".year");
 let colorElement = document.getElementsByTagName("BODY")[0];
 var nIntervId;
 
-  tagsHtml.backgroundColor ="purple";
+
 // an array of quote objects
 var quotes = [
   {
@@ -112,14 +112,17 @@ function getRandomQuote() {
   }
 
     let html = "";
+    let bracketsBefore = "[";
+    let bracketsAfter = "]";
     let quotePlusNum = quotes[randomQuoteNum()];
     let quotesObj = quotePlusNum.quote;
     let quoteLit = quotePlusNum.quote
     let characterLit = quotePlusNum.character;
     let citationLit = quotePlusNum.citation;
     let yearLit = quotePlusNum.year;
-    let tagsArray = quotePlusNum.tags;
+    let tagsArray = bracketsBefore + quotePlusNum.tags + bracketsAfter;
     let filmTimeArray = quotePlusNum.filmtime;
+
 
     quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
 
@@ -129,8 +132,8 @@ function getRandomQuote() {
       if (!yearLit) {
       yearLit = `Some Time Back to the Future!`;
       }
-      if (!tagsArray) {
-        tagsHtml.style.display = "none";
+      if (quotePlusNum.tags === undefined) {
+        tagsArray = ""
       }
 
       html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit}</span><span class="tags">${tagsArray}</span></p>`;
