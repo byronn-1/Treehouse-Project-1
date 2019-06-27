@@ -1,7 +1,9 @@
-var quoteBox= document.getElementById("quote-box");
+// query selectors for grabbing HTML
+let quoteBox= document.getElementById("quote-box");
 let citationHtml = document.querySelector("span.citation");
 let yearHtml = quoteBox.querySelector(".year");
 
+// required list of quotes
 var quotes = [
   {
     quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
@@ -83,6 +85,7 @@ var quotes = [
   },
 ];
 
+// getRandomQuote function creates a random number and uses it to select an object from the array of objects.
 function getRandomQuote() {
 
   function randomQuoteNum() {
@@ -98,11 +101,12 @@ function getRandomQuote() {
     let citationLit = quotePlusNum.citation;
     let yearLit = quotePlusNum.year;
 
+//CHECK IF NES
     quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
-    if (!citationLit) {
+      if (!citationLit) {
         citationHtml.style.display = "none";
-    }
-    if (!yearLit) {
+      }
+      if (!yearLit) {
       yearLit = `Some Time Back to the Future!`;
       }
 
@@ -111,10 +115,12 @@ function getRandomQuote() {
     return html
 } 
 
+// numberForColor() is a random number generator that then supplies randomColor()
 function numberForColor(){
   return Math.floor(Math.random() * 256);
 }
 
+// randomColor() takes a randomly generated number and passes it into the body tags style property in an rgb format
 function randomColor(){
   let colorElement = document.getElementsByTagName("BODY")[0];
     let r = numberForColor(); 
