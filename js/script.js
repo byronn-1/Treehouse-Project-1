@@ -10,7 +10,8 @@ var quotes = [
     quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
     character: "Marty McFly",
     citation: "Back To The Future",
-    year: 1985
+    year: 1985,
+    filmtime: [1.50,]
   },
   {
     quote: "Jeasus Christ, Doc! You disintegrated Einstein",
@@ -28,7 +29,8 @@ var quotes = [
     quote: "Nobody calls me chicken!",
     character: "Marty McFly",
     citation: "",
-    year: ""
+    year: "",
+    filmtime: ["1.20", "48.20", "1,10.30" ]
   },
   {
     quote: "Time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: women!",
@@ -85,6 +87,8 @@ var quotes = [
     year: ""
   },
 ];
+
+// we could introduce a set interval that when you hover on the quote it gives a pop up of when it was said in the film
 
 // getRandomQuote function creates a random number and uses it to select an object from the array of objects.
 function getRandomQuote() {
