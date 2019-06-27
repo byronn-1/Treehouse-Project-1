@@ -1,9 +1,10 @@
-// query selectors for grabbing HTML
+// query selectors for selecting HTML elements
 let quoteBox= document.getElementById("quote-box");
 let citationHtml = document.querySelector("span.citation");
 let yearHtml = quoteBox.querySelector(".year");
-
-// required list of quotes
+var nIntervId;
+let colorElement = document.getElementsByTagName("BODY")[0];
+// an array of quote objects
 var quotes = [
   {
     quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
@@ -122,13 +123,22 @@ function numberForColor(){
 
 // randomColor() takes a randomly generated number and passes it into the body tags style property in an rgb format
 function randomColor(){
-  let colorElement = document.getElementsByTagName("BODY")[0];
+  
     let r = numberForColor(); 
     let g = numberForColor(); 
     let b = numberForColor(); 
     colorElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
       return colorElement;
 }
+function changeColor() {
+  nIntervId = setInterval(changeBackgroundAndQuote, 7500);
+}
+
+function changeBackgroundAndQuote(){
+  colorElement.style.backgroundColor = randomColor();
+  printQuote();
+}
+
 
 function printQuote(){
   const outputDiv = document.querySelector('#quote-box');
