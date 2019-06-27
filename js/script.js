@@ -1,9 +1,12 @@
 // query selectors for selecting HTML elements
 let quoteBox= document.getElementById("quote-box");
 let citationHtml = document.querySelector("span.citation");
+let tagsHtml = document.querySelector("span.tags");
 let yearHtml = quoteBox.querySelector(".year");
-var nIntervId;
 let colorElement = document.getElementsByTagName("BODY")[0];
+var nIntervId;
+
+  tagsHtml.backgroundColor ="purple";
 // an array of quote objects
 var quotes = [
   {
@@ -26,7 +29,7 @@ var quotes = [
     character: "George McFly ",
     citation: "Back To The Future Part 2",
     year: 2002,
-    tags: ["humor", "crazy"]
+    tags: ["humor", " crazy"]
   },
   {
     quote: "Nobody calls me chicken!",
@@ -41,7 +44,7 @@ var quotes = [
     character: "Dr. Emmett Brown",
     citation: "Back To The Future Part 2",
     year: "",
-    tags: ["sexist", "out of date"]
+    tags: ["sexist", " out of date"]
   },
   {
     quote: "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious s***.",
@@ -85,7 +88,7 @@ var quotes = [
     character: "Dr. Emmett Brown",
     citation: "Back To The Future",
     year: "",
-    tags: ["out of date", "humor"]
+    tags: ["out of date", " humor"]
   },
   {
     quote: "If you put your mind to it you can accomplish anything.",
@@ -99,6 +102,8 @@ var quotes = [
 // we could introduce a set interval that when you hover on the quote it gives a pop up of when it was said in the film
 
 // getRandomQuote function creates a random number and uses it to select an object from the array of objects.
+
+
 function getRandomQuote() {
 
   function randomQuoteNum() {
@@ -113,17 +118,25 @@ function getRandomQuote() {
     let characterLit = quotePlusNum.character;
     let citationLit = quotePlusNum.citation;
     let yearLit = quotePlusNum.year;
+    let tagsArray = quotePlusNum.tags;
+    let filmTimeArray = quotePlusNum.filmtime;
 
-//CHECK IF NES
     quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
+
       if (!citationLit) {
         citationHtml.style.display = "none";
       }
       if (!yearLit) {
       yearLit = `Some Time Back to the Future!`;
       }
+      if (!tagsArray) {
+        tagsHtml.style.display = "none";
+      }
 
-      html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit} </span></p>`
+      html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit}</span><span class="tags">${tagsArray}</span></p>`;
+
+
+    // document.querySelector('.quote').addEventListener("mouseover",);
 
     return html
 } 
