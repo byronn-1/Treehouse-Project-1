@@ -11,32 +11,37 @@ var quotes = [
     character: "Marty McFly",
     citation: "Back To The Future",
     year: 1985,
-    filmtime: [1.50,]
+    filmtime: [1.50,],
+    tags: ["humor"]
   },
   {
     quote: "Jeasus Christ, Doc! You disintegrated Einstein",
     character: "Marty McFly",
     citation: "Back To The Future",
-    year: 1985
+    year: 1985,
+    tags: ["humor"]
   },
   {
     quote: "Last night, Darth Vader came down from planet Vulcan and told me that if I didn't take Lorraine out that he'd melt my brain. ",
     character: "George McFly ",
     citation: "Back To The Future Part 2",
-    year: 2002
+    year: 2002,
+    tags: ["humor", "crazy"]
   },
   {
     quote: "Nobody calls me chicken!",
     character: "Marty McFly",
     citation: "",
     year: "",
-    filmtime: ["1.20", "48.20", "1,10.30" ]
+    filmtime: ["1.20", "48.20", "1,10.30" ],
+    tags: ["bravery"]
   },
   {
     quote: "Time traveling is just too dangerous. Better that I devote myself to study the other great mystery of the universe: women!",
     character: "Dr. Emmett Brown",
     citation: "Back To The Future Part 2",
-    year: ""
+    year: "",
+    tags: ["sexist", "out of date"]
   },
   {
     quote: "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious s***.",
@@ -60,7 +65,8 @@ var quotes = [
     quote: "Roads? where we’re going, we don’t need roads.",
     character: "Dr. Emmett Brown",
     citation: "Back To The Future",
-    year: 2015
+    year: 2015,
+    tags: ["brilliant"]
   },
   {
     quote: "I'm sure in 1985 plutonium is in every corner drug store, but in 1955, it's a little hard to come by! I'm sorry, but I'm afraid you're stuck here",
@@ -78,13 +84,15 @@ var quotes = [
     quote: "Is there a problem with Earth's gravitational pull in the future? Why is everything so heavy?",
     character: "Dr. Emmett Brown",
     citation: "Back To The Future",
-    year: ""
+    year: "",
+    tags: ["out of date", "humor"]
   },
   {
     quote: "If you put your mind to it you can accomplish anything.",
     character: "Dr. Emmett Brown",
     citation: "Back To The Future",
-    year: ""
+    year: "",
+    tags: ["inspirational"]
   },
 ];
 
