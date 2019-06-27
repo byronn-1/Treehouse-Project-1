@@ -1,18 +1,18 @@
 var quoteBox= document.getElementById("quote-box");
-let citationHtml = document.querySelector(".citation");
+let citationHtml = document.querySelector("span.citation");
 let yearHtml = quoteBox.querySelector(".year");
 
 var quotes = [
   {
-    quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine … out of a DeLorean?",
+    quote: "Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
     character: "Marty McFly",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: 1985
   },
   {
-    quote: "Jeasus Christ, Doc! You disintegrated Einstien",
+    quote: "Jeasus Christ, Doc! You disintegrated Einstein",
     character: "Marty McFly",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: 1985
   },
   {
@@ -36,7 +36,7 @@ var quotes = [
   {
     quote: "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious s***.",
     character: "Dr. Emmett Brown",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: ""
   },
   {
@@ -46,7 +46,7 @@ var quotes = [
     year: ""
   },
   {
-    quote: "I guess you guys aren’t ready for that yet. but your kids are gonna love it.",
+    quote: "I guess you guys aren’t ready for that yet but your kids are gonna love it.",
     character: "Marty McFly",
     citation: "",
     year: ""
@@ -54,31 +54,31 @@ var quotes = [
   {
     quote: "Roads? where we’re going, we don’t need roads.",
     character: "Dr. Emmett Brown",
-    citation: "Dr. Emmett Brown",
+    citation: "Back To The Future",
     year: 2015
   },
   {
-    quote: "I'm sure in 1985 plutonium is in every corner drug store, but in 1955, its a little hard to come by! I'm sorry, but I'm afraid you're stuck here",
+    quote: "I'm sure in 1985 plutonium is in every corner drug store, but in 1955, it's a little hard to come by! I'm sorry, but I'm afraid you're stuck here",
     character: "Dr. Emmett Brown",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: ""
   },
   {
-    quote: "Einstein has just become the worlds frist time traveler. I sent him into the future.",
+    quote: "Einstein has just become the worlds first time traveler. I sent him into the future.",
     character: "Dr. Emmett Brown",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: 1985
   },
   {
     quote: "Is there a problem with Earth's gravitational pull in the future? Why is everything so heavy?",
     character: "Dr. Emmett Brown",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: ""
   },
   {
     quote: "If you put your mind to it you can accomplish anything.",
     character: "Dr. Emmett Brown",
-    citation: "Back to the Future",
+    citation: "Back To The Future",
     year: ""
   },
 ];
@@ -90,49 +90,26 @@ function getRandomQuote() {
     return randomNumber;
   }
 
-  let html = "";
-  let quotePlusNum = quotes[randomQuoteNum()];
-  let quotesObj = quotePlusNum.quote;
-  let quoteLit = quotePlusNum.quote
-  let characterLit = quotePlusNum.character;
-  let citationLit = quotePlusNum.citation;
-  let yearLit = quotePlusNum.year;
-  // console.log(quotesObj);
-  // quoteBox.querySelector('.character').innerHTML= `<p> ${characterLit} </p>`;
-  // console.log(quoteBox.querySelector('.character').textContent);
+    let html = "";
+    let quotePlusNum = quotes[randomQuoteNum()];
+    let quotesObj = quotePlusNum.quote;
+    let quoteLit = quotePlusNum.quote
+    let characterLit = quotePlusNum.character;
+    let citationLit = quotePlusNum.citation;
+    let yearLit = quotePlusNum.year;
 
-  quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
-  if (!citationLit) {
-      citationHtml.style.display = "none";
-  }
-  if (!yearLit) {
-    yearLit = `Some Time Back to the Future!`;
+    quoteBox.querySelector('p.quote').innerHTML = quotesObj.toString();
+    if (!citationLit) {
+        citationHtml.style.display = "none";
     }
+    if (!yearLit) {
+      yearLit = `Some Time Back to the Future!`;
+      }
 
-    html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit} </span></p>`
+      html += `<p class="quote"> ${quoteLit} </p><p class="character"> ${characterLit} <span class="citation"> ${citationLit} </span><span class="year"> ${yearLit} </span></p>`
 
-  return html
-//   let html1 = '';
-//   let html2 = '';
-
-//   html1 += '<p class="quote">' + quotes[randomNumber].quote + '</p>';
-//   html1 +='<p class="character">' + quotes[randomNumber].character + '</p>';
-//   if (quotes[randomNumber].citation) {
-//     html1 += '<span class="citation">' + quotes[randomNumber].citation + '</span>'}
-//   else {
-//     document.querySelector(".citation").style.display = "none";
-//   }
-//   if (quotes[randomNumber].year) {
-//     html2 += '<span class="year">' + quotes[randomNumber].year + '</span>'}
-//   else {
-//     html2 += '<span class="year">Some Time Back to the Future!</span>';
-//   }
-//   htmlString = html1 + html2 + '</p>'
-//   return htmlString;
-// }
-// - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-}
-console.log(getRandomQuote)
+    return html
+} 
 
 function numberForColor(){
   return Math.floor(Math.random() * 256);
