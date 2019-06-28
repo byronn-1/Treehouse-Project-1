@@ -103,27 +103,18 @@ var quotes = [
 
 // getRandomQuote function creates a random number and uses it to select an object from the array of objects.
 
-/*
-functions list---
-    getRandomQuote
-    numberForColor
-    randomColor
-    changeColor
-    changeBackGroundAndQuote
-    printQuote
-*/
-
-// randomNums() is a random number generator that generates a number between the the given numbers in the arguments 
-function randomNums(max, min){
-  return Math.floor(Math.random()*(max-min+1)+min);
-}
 
 function getRandomQuote(rand) {
+
+  function randomQuoteNum() {
+    randomNumber =  Math.floor(Math.random() * quotes.length);
+    return randomNumber;
+  }
 
     let html = "";
     let bracketsBefore = "[";
     let bracketsAfter = "]";
-    let quotePlusNum = quotes[randomNums(quotes.length, 0)];
+    let quotePlusNum = quotes[randomQuoteNum()];
     let quotesObj = quotePlusNum.quote;
     let quoteLit = quotePlusNum.quote
     let characterLit = quotePlusNum.character;
@@ -153,12 +144,17 @@ function getRandomQuote(rand) {
     return html
 } 
 
+// numberForColor() is a random number generator that then supplies randomColor()
+function numberForColor(max, min){
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
 // randomColor() takes a randomly generated number that is between the range given in the arguments and passes it into the body tags style property in an rgb format (so the colours dont jump like crazy)
 function randomColor(){
   
-    let r = randomNums(150,210); 
-    let g = randomNums(150,210); 
-    let b = randomNums(140,200); 
+    let r = numberForColor(150,210); 
+    let g = numberForColor(150,210); 
+    let b = numberForColor(140,200); 
     colorElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
       return colorElement;
 }
