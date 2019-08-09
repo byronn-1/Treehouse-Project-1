@@ -1,11 +1,19 @@
 /******************************************
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
-******************************************
+******************************************/
 
-/** 
-An array of objects that contains quotes from the back to the future films, the character who said the quote, the film in which the character said the quote, year in which the quote was said (real or year in the film!), and tags that are activated on mouse over.
-**/
+// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
+
+
+/*** 
+  Create the array of quote objects and name it `quotes`.
+  Add at least five quote objects to the `quotes` array.
+  Give each quote object a `quote` and `source` property.
+  Add the `citation` property to at least one object in the array.
+  Add the `year` property to at least one object in the array.
+  Use console.log() to log your array of quotes to the console.
+***/
 var quotes = [
   {
     quote:"Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
@@ -94,19 +102,19 @@ var quotes = [
     tags:["inspirational"]
   },
 ];
-
 const outputDiv = document.querySelector('#quote-box');
 const quoteP = document.querySelector('.quote');
 const buttonClick = document.getElementById('loadQuote');
 const bodyElement = document.getElementsByTagName("BODY")[0];
 
-
-// randomNums function creates a random number between two values
+/***
+  Create the `getRandomQuote` function to:
+   - Create a variable to store a random number 
+   - Use the random number to `return` a random quote object from the `quotes` array.
+***/
 function randomNums(max, min){
   return Math.floor(Math.random()*(max-min+1)+min);
 }
-
-// randomColor function creates a random rgb value within a certain colour range this range is aided by the randomNums function
 function randomColor(){
   
   let r = randomNums(150,210); 
@@ -115,15 +123,13 @@ function randomColor(){
   bodyElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     return bodyElement;
 }
-
-// getRandomQuote function uses the randomNums function to get a random quote from the quotes object |||******* off by one ERROR needs sorting********|||
 function getRandomQuote() {
   let randomQuote = quotes[randomNums(quotes.length, 0)];
 
   return randomQuote;
 }
 console.log(getRandomQuote())
-
+console.log(getRandomQuote().tags);
 
 /***
   Create the `printQuote` function to: 
@@ -154,8 +160,6 @@ function printQuote(){
           html += '<span class="year">Some Time Back to the Future!</span>';
       }
 
-      html += '</p>';
-
       /*
       const tooltipVar document.getElement(tooltip);
       if(randomQuoteObj.tags) {
@@ -170,35 +174,26 @@ function printQuote(){
       }
       */
 
+  html += '</p>';
+
   outputDiv.innerHTML = html;
   randomColor();
-  var quotee = {
-    toPrint: html,
-    tags: randomQuoteObj.tags
-  }
+  
   // let randomQuote = getRandomQuote()
 
-return quotee;
+return outputDiv;
 }
- console.log(printQuote())
 
 function clickedButton(){
 if (buttonClick){
   clearInterval(printQuote);
-  startInterval();
+  setInterval(printQuote, 3000);
+  console.log('Whupdeefuckingdoo')
   }
 }
 
-function startInterval(){
-  setInterval(printQuote, 3500);
-}
-// starts off quote generator from window load
-window.addEventListener('load',startInterval);
-
-// event listener for button click 
+// window.addEventListener('load', clickedButton);
 buttonClick.addEventListener('click', clickedButton);
-
-// mouseover event listener to show tags
 quoteP.addEventListener('mouseover', () => {
 
   let toolTip = document.createElement('div');
@@ -206,20 +201,9 @@ quoteP.addEventListener('mouseover', () => {
   toolTip.className = "tooltip";
   toolTip.innerHTML = getRandomQuote().tags
   outputDiv.appendChild(toolTip);
-  console.log("jeaseuuus")
 });
 
 function print() {
- printQuote()
-
-  return 
+  
 }
-
-/*
-  fix off buy one ERROR in the getRandomQuote function
-  fix mouseover 
-        God only knows the problem here
-  fix clickedButton function 
-      clear interval and setinterval timer(possibly put it into a variable)
-      {seperated them into two functions}
- */
+// Remember to delete the comments that came with this file, and replace them with your own code comments.
