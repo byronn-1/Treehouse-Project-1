@@ -1,5 +1,11 @@
+/******************************************
+Treehouse FSJS Techdegree:
+project 1 - A Random Quote Generator
+******************************************
 
-
+/** 
+An array of objects that contains quotes from the back to the future films, the character who said the quote, the film in which the character said the quote, year in which the quote was said (real or year in the film!), and tags that are activated on mouse over.
+**/
 var quotes = [
   {
     quote:"Wait a minute. Wait a minute Doc, uh, are you telling me you built a time machine… out of a DeLorean?",
@@ -28,7 +34,7 @@ var quotes = [
     character:"Marty McFly",
     citation: "",
     year:"",
-    filmtime:["1.20", "48.20", "10.30" ],
+    filmtime:["1.20", "48.20", "1,10.30" ],
     tags:["bravery"]
   },
   {
@@ -89,41 +95,57 @@ var quotes = [
   },
 ];
 
-
-console.log(Object.keys(quotes));
 const outputDiv = document.querySelector('#quote-box');
 const quoteP = document.querySelector('.quote');
 const buttonClick = document.getElementById('loadQuote');
 const bodyElement = document.getElementsByTagName("BODY")[0];
 
-function randomNums(max, min){
-  return Math.floor(Math.random()*(max-min)+min);}
 
+// randomNums function creates a random number between two values
+function randomNums(max, min){
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+// randomColor function creates a random rgb value within a certain colour range this range is aided by the randomNums function
 function randomColor(){
+  
   let r = randomNums(150,210); 
   let g = randomNums(150,210); 
   let b = randomNums(140,200); 
   bodyElement.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-    return bodyElement;}
+    return bodyElement;
+}
+
+// getRandomQuote function uses the randomNums function to get a random quote from the quotes object |||******* off by one ERROR needs sorting********|||
+function getRandomQuote() {
+  let randomQuote = quotes[randomNums(quotes.length, 0)];
+
+  return randomQuote;
+}
+console.log(getRandomQuote())
+
+
+/***
+  Create the `printQuote` function to: 
+   - Call the `getRandomQuote` function and assign it to a variable.
+   - Create a variable for the HTML string and set it equal to an empty string.
+   - Use the HTML template in the instructions or the markup in the index.html file, AND 
+     the random quote vairable to build your HTML string.
+   - Add the quote and source section to the HTML string.
+   - Use an if statement to check for the citation property before adding it to the HTML string.
+   - Use an if statement to check for the year property before adding it to the HTML string.
+   - Don't forget to close that final `p` tag.
+   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
+***/
 
 function printQuote(){
-
-  function getRandomQuote() {
-    let randomQuote = quotes[randomNums(quotes.length, 0)];
-    return randomQuote;}
-
   let randomQuoteObj = getRandomQuote();
-  
   randomColor();
 
+  html = '';
 
-    html = '';
-      if(randomQuoteObj.quote){
-        html += '<p class="quote">' + randomQuoteObj.quote + '</p>';
-      }
-      if(randomQuoteObj.character ){
-        html += '<p class="source">' + randomQuoteObj.character;
-      }
+    html += '<p class="quote">' + randomQuoteObj.quote + '</p>';
+    html += '<p class="source">' + randomQuoteObj.character;
       if(randomQuoteObj.citation) {
           html += '<span class="citation">' + randomQuoteObj.citation + '</span>';
       }
@@ -132,94 +154,82 @@ function printQuote(){
       } else {
           html += '<span class="year">Some Time Back to the Future!</span>';
       }
-      html += '</p>';
-  
- outputDiv.innerHTML = html;
 
+      html += '</p>';
+
+      /*
+      const tooltipVar document.getElement(tooltip);
+      if(randomQuoteObj.tags) {
+        tooltipVar.attribute = randomQuoteObj.tags;
+      }
+
+      OR 
+
+      return var quote = {
+        toPrint: html,
+        tags: randomQuoteObj.tags
+      }
+      */
+
+  outputDiv.innerHTML = html;
+  
   var quotee = {
     toPrint: html,
     tag: randomQuoteObj.tags
   }
+  // let randomQuote = getRandomQuote()
 
-  console.log(quotee);
-return quotee;}
-
-
+return quotee;
+}
+ console.log(printQuote())
 
 function tagsMouseOver(){
-  let tagsJson = printQuote().quotee.toPrint;
+  let tagsJson = printQuote();
   let toolTip = document.createElement('div');
   
   toolTip.className = "tooltip";
   toolTip.innerHTML = tagsJson.tag;
   outputDiv.appendChild(toolTip);
   console.log("jeaseuuus");
-  console.log(toolTip);
 }
 
 /*
+Hey @Byronn! Creating a global variable for the timer and then setting/resetting it as needed is definitely one way you could go.
+Using that idea, I would suggest creating a global variable along with a separate function for the timer. Inside of that function, start by first clearing the timer variable and then setting a new timer on it.
+Then once you have that function in place, you can call it inside of the printQuote function.
+If you continue to have issues with this feel free to make a new post and don't forget to share a link to your repo. It is much easier to answer questions like this when folks can see and run the code first hand. :thumbsup:
+
   create a global variable for the timer 
     then set it and reset it as needed
   seperate function for the timer
     clear the timer variable 
     then set a new timer on it.
   when function is in place call it in the printquote function
+
   REMEBER method stringing 
+  
+  
+
 */
 
 var interval = setInterval(printQuote, 5000);
 
 function clickedButton(){
   clearInterval(interval);
-  printQuote();
-  startInterval();
   
-  console.log("you clicked the button");
 }
 
 function startInterval(){
-  return interval = setInterval(printQuote, 5000);
+  let interval = setInterval(printQuote, 5000);
 }
 
-var myVar = setInterval(myTimer, 1000);
+// starts off quote generator from window load
+window.addEventListener('load', startInterval);
 
-function myTimer() {
-  var d = new Date();
-  var t = d.toLocaleTimeString();
-  console.log(t)
-}
-// function clickedButton(){
-//   console.log("you clicked the button");
-//   printQuote();
-//   clearInterval(startInterval);
-//   stopIntervalFunction();
-//   setInterval(printQuote, 5000);  
-//   /* if(button == 'off'){
-//     clearInterval(startInterval);
-//     // set button == 'on'
-//   } else{
-
-//   }
-
-//   */
-// }
-
-// function startInterval(){
-//   setInterval(printQuote, 5000);
-//   console.log("you loaded the content");
-//   console.log("you started the timer");
-// }
-
-// function stopIntervalFunction(printQuote){
-//   clearInterval(printQuote);
-//   clearInterval(interval);
-
-// }
-
-// window.addEventListener('load', interval);
-
+// event listener for button click 
 buttonClick.addEventListener('click', clickedButton);
 
+// mouseover event listener to show tags
 quoteP.addEventListener('mouseover', tagsMouseOver);
 
 function print() {
@@ -228,8 +238,11 @@ function print() {
   return 
 }
 
-
-// clearInterval(intervalID);
-// intervalID = setInterval(function(){
-//    ...
-// }, 100); 
+/*
+  fix off buy one ERROR in the getRandomQuote function
+  fix mouseover 
+        God only knows the problem here
+  fix clickedButton function 
+      clear interval and setinterval timer(possibly put it into a variable)
+      {seperated them into two functions}
+ */
