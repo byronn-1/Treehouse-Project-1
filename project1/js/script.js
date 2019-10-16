@@ -157,16 +157,6 @@ function tagsMouseOver(){
   console.log(toolTip);
 }
 
-/*
-  create a global variable for the timer 
-    then set it and reset it as needed
-  seperate function for the timer
-    clear the timer variable 
-    then set a new timer on it.
-  when function is in place call it in the printquote function
-  REMEBER method stringing 
-*/
-
 var interval = setInterval(printQuote, 5000);
 
 function clickedButton(){
@@ -188,36 +178,6 @@ function myTimer() {
   var t = d.toLocaleTimeString();
   console.log(t)
 }
-// function clickedButton(){
-//   console.log("you clicked the button");
-//   printQuote();
-//   clearInterval(startInterval);
-//   stopIntervalFunction();
-//   setInterval(printQuote, 5000);  
-//   /* if(button == 'off'){
-//     clearInterval(startInterval);
-//     // set button == 'on'
-//   } else{
-
-//   }
-
-//   */
-// }
-
-// function startInterval(){
-//   setInterval(printQuote, 5000);
-//   console.log("you loaded the content");
-//   console.log("you started the timer");
-// }
-
-// function stopIntervalFunction(printQuote){
-//   clearInterval(printQuote);
-//   clearInterval(interval);
-
-// }
-
-// window.addEventListener('load', interval);
-
 buttonClick.addEventListener('click', clickedButton);
 
 quoteP.addEventListener('mouseover', tagsMouseOver);
@@ -228,8 +188,3 @@ function print() {
   return 
 }
 
-
-// clearInterval(intervalID);
-// intervalID = setInterval(function(){
-//    ...
-// }, 100); 
